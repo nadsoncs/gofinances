@@ -1,6 +1,7 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { StatusBar } from 'react-native';
-import 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
 import AppLoading from 'expo-app-loading';
@@ -32,10 +33,12 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar barStyle="light-content"/>
-      <AuthProvider>
-        <Routes />
-      </AuthProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <StatusBar barStyle="light-content"/>
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
+      </GestureHandlerRootView>
     </ThemeProvider>
   );
 }
